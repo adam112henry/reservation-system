@@ -1,6 +1,6 @@
-package com.amenity_reservation_system.repos;
+package com.reservation_system.repos;
 
-import com.amenity_reservation_system.domain.Reservation;
+import com.reservation_system.domain.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

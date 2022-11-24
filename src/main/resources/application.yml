@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:h2:mem:amenity-reservation-system}
+    url: ${JDBC_DATABASE_URL:jdbc:h2:mem:reservation-system}
     username: ${JDBC_DATABASE_USERNAME:sa}
     password: ${JDBC_DATABASE_PASSWORD:}
     dbcp2:
