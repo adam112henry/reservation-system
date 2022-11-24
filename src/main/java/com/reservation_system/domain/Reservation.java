@@ -1,16 +1,18 @@
-package com.amenity_reservation_system.domain;
+package com.reservation_system.domain;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.OffsetDateTime;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -19,11 +21,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "\"user\"")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
-public class User {
+public class Reservation {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -39,8 +40,18 @@ public class User {
     )
     private Long id;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Reservation> userReservations;
+    @Column(nullable = false)
+    private LocalDate reservationDate;
+
+    @Column(nullable = false)
+    private LocalTime startTime;
+
+    @Column(nullable = false)
+    private LocalTime endTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

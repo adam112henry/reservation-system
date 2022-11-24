@@ -1,4 +1,4 @@
-package com.amenity_reservation_system.model;
+package com.reservation_system.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;

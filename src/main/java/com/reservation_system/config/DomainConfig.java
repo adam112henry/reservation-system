@@ -1,4 +1,4 @@
-package com.amenity_reservation_system.config;
+package com.reservation_system.config;
 
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @Configuration
-@EntityScan("com.amenity_reservation_system.domain")
-@EnableJpaRepositories("com.amenity_reservation_system.repos")
+@EntityScan("com.reservation_system.domain")
+@EnableJpaRepositories("com.reservation_system.repos")
 @EnableTransactionManagement
 @EnableJpaAuditing(dateTimeProviderRef = "auditingDateTimeProvider")
 public class DomainConfig {

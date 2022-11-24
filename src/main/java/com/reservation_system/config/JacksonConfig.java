@@ -1,4 +1,4 @@
-package com.amenity_reservation_system.config;
+package com.reservation_system.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;

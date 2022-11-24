@@ -1,4 +1,4 @@
-# AmenityReservationSystem
+# ReservationSystem
 
 This app was created with Bootify.io - more documentation [can be found here](https://bootify.io/docs/). Feel free to contact us for further questions.
 
@@ -13,7 +13,7 @@ This app was created with Bootify.io - more documentation [can be found here](ht
 - POST some users
 - POST some reservations but need to specify the user parameter
 - Open the h2 console - http://localhost:8080/h2-console
-- Change the JDBC URL to jdbc:h2:mem:amenity-reservation-system
+- Change the JDBC URL to jdbc:h2:mem:reservation-system
 - Connect and you're good to go!
 
 ## Development
@@ -37,7 +37,7 @@ mvnw clean package
 The application can then be started with the following command - here with the profile `production`:
 
 ```
-java -Dspring.profiles.active=production -jar ./target/amenity-reservation-system-0.0.1-SNAPSHOT.jar
+java -Dspring.profiles.active=production -jar ./target/reservation-system-0.0.1-SNAPSHOT.jar
 ```
 
 ## Further readings

@@ -1,4 +1,4 @@
-package com.amenity_reservation_system.model;
+package com.reservation_system.model;
 
 import java.util.List;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package com.amenity_reservation_system.config;
+package com.reservation_system.config;
 
-import com.amenity_reservation_system.model.ErrorResponse;
-import com.amenity_reservation_system.model.FieldError;
+import com.reservation_system.model.ErrorResponse;
+import com.reservation_system.model.FieldError;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import java.util.stream.Collectors;

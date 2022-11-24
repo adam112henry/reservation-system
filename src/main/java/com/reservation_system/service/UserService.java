@@ -1,8 +1,8 @@
-package com.amenity_reservation_system.service;
+package com.reservation_system.service;
 
-import com.amenity_reservation_system.domain.User;
-import com.amenity_reservation_system.model.UserDTO;
-import com.amenity_reservation_system.repos.UserRepository;
+import com.reservation_system.domain.User;
+import com.reservation_system.model.UserDTO;
+import com.reservation_system.repos.UserRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.data.domain.Sort;

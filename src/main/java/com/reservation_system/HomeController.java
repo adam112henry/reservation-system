@@ -1,4 +1,4 @@
-package com.amenity_reservation_system;
+package com.reservation_system;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

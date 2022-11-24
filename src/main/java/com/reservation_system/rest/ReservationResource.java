@@ -1,7 +1,7 @@
-package com.amenity_reservation_system.rest;
+package com.reservation_system.rest;
 
-import com.amenity_reservation_system.model.ReservationDTO;
-import com.amenity_reservation_system.service.ReservationService;
+import com.reservation_system.model.ReservationDTO;
+import com.reservation_system.service.ReservationService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import java.util.List;
 import javax.validation.Valid;
