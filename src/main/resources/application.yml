@@ -7,6 +7,8 @@ spring:
       max-wait-millis: 30000
       validation-query: "SELECT 1"
       validation-query-timeout: 30
+  thymeleaf:
+    cache: false
   h2:
     console:
       enabled: true
