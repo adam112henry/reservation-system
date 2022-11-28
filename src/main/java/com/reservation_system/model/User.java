@@ -1,6 +1,7 @@
 package com.reservation_system.model;
 
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -34,8 +35,17 @@ public class User {
     )
     private Long id;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Reservation> userReservations;
+    @Column(nullable = false, unique = true)
+    private String fullName;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+
+    @Column
+    private String passwordHash;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Reservation> reservations = new HashSet<>();
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -54,5 +64,11 @@ public class User {
     @PreUpdate
     public void preUpdate() {
         lastUpdated = OffsetDateTime.now();
+    }
+
+    public User(String fullName, String username, String passwordHash) {
+        this.fullName = fullName;
+        this.username = username;
+        this.passwordHash = passwordHash;
     }
 }
