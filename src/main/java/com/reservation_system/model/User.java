@@ -1,30 +1,24 @@
-package com.reservation_system.domain;
+package com.reservation_system.model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.OffsetDateTime;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Set;
+import javax.persistence.*;
+
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
+@Table(name = "\"user\"")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
-public class Reservation {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
 
     @Id
     @Column(nullable = false, updatable = false)
@@ -40,18 +34,8 @@ public class Reservation {
     )
     private Long id;
 
-    @Column(nullable = false)
-    private LocalDate reservationDate;
-
-    @Column(nullable = false)
-    private LocalTime startTime;
-
-    @Column(nullable = false)
-    private LocalTime endTime;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @OneToMany(mappedBy = "user")
+    private Set<Reservation> userReservations;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -61,4 +45,14 @@ public class Reservation {
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
 
+    @PrePersist
+    public void prePersist() {
+        dateCreated = OffsetDateTime.now();
+        lastUpdated = dateCreated;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        lastUpdated = OffsetDateTime.now();
+    }
 }

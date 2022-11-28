@@ -3,52 +3,14 @@
 title __RESERVATION-SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
-    class com.reservation_system.HomeController {
-    }
-  }
-  
-
-  namespace com.reservation_system {
     class com.reservation_system.ReservationSystemApplication {
     }
   }
   
 
   namespace com.reservation_system {
-    namespace config {
-      class com.reservation_system.config.DomainConfig {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace config {
-      class com.reservation_system.config.JacksonConfig {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace config {
-      class com.reservation_system.config.RestExceptionHandler {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace domain {
-      class com.reservation_system.domain.Reservation {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace domain {
-      class com.reservation_system.domain.User {
+    namespace controller {
+      class com.reservation_system.controller.HomeController {
       }
     }
   }
@@ -56,7 +18,7 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.ErrorResponse {
+      enum AmenityType {
       }
     }
   }
@@ -64,7 +26,7 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.FieldError {
+      class com.reservation_system.model.Reservation {
       }
     }
   }
@@ -72,15 +34,7 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.ReservationDTO {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace model {
-      class com.reservation_system.model.UserDTO {
+      class com.reservation_system.model.User {
       }
     }
   }
@@ -103,22 +57,6 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
   
 
   namespace com.reservation_system {
-    namespace rest {
-      class com.reservation_system.rest.ReservationResource {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace rest {
-      class com.reservation_system.rest.UserResource {
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
     namespace service {
       class com.reservation_system.service.ReservationService {
       }
@@ -134,9 +72,8 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
   }
   
 
-  com.reservation_system.domain.Reservation o-- com.reservation_system.domain.User : user
-  com.reservation_system.rest.ReservationResource o-- com.reservation_system.service.ReservationService : reservationService
-  com.reservation_system.rest.UserResource o-- com.reservation_system.service.UserService : userService
+  com.reservation_system.model.Reservation o-- com.reservation_system.model.AmenityType : amenityType
+  com.reservation_system.model.Reservation o-- com.reservation_system.model.User : user
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.ReservationRepository : reservationRepository
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.UserRepository : userRepository
   com.reservation_system.service.UserService o-- com.reservation_system.repos.UserRepository : userRepository
