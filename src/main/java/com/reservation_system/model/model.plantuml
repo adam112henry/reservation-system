@@ -4,19 +4,11 @@ title __MODEL's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.ErrorResponse {
-          - exception : String
-          - fieldErrors : List<FieldError>
-          - httpStatus : Integer
-          - message : String
-          + getException()
-          + getFieldErrors()
-          + getHttpStatus()
-          + getMessage()
-          + setException()
-          + setFieldErrors()
-          + setHttpStatus()
-          + setMessage()
+      enum AmenityType {
+        GYM
+        POOL
+        SAUNA
+        name
       }
     }
   }
@@ -24,33 +16,31 @@ title __MODEL's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.FieldError {
-          - errorCode : String
-          - field : String
-          + getErrorCode()
-          + getField()
-          + setErrorCode()
-          + setField()
-      }
-    }
-  }
-  
-
-  namespace com.reservation_system {
-    namespace model {
-      class com.reservation_system.model.ReservationDTO {
+      class com.reservation_system.model.Reservation {
+          - dateCreated : OffsetDateTime
           - endTime : LocalTime
           - id : Long
+          - lastUpdated : OffsetDateTime
           - reservationDate : LocalDate
           - startTime : LocalTime
-          - user : Long
+          + Reservation()
+          + Reservation()
+          {static} + builder()
+          + getAmenityType()
+          + getDateCreated()
           + getEndTime()
           + getId()
+          + getLastUpdated()
           + getReservationDate()
           + getStartTime()
           + getUser()
+          + prePersist()
+          + preUpdate()
+          + setAmenityType()
+          + setDateCreated()
           + setEndTime()
           + setId()
+          + setLastUpdated()
           + setReservationDate()
           + setStartTime()
           + setUser()
@@ -61,15 +51,79 @@ title __MODEL's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace model {
-      class com.reservation_system.model.UserDTO {
+      class com.reservation_system.model.Reservation.ReservationBuilder {
+          - dateCreated : OffsetDateTime
+          - endTime : LocalTime
           - id : Long
-          + getId()
-          + setId()
+          - lastUpdated : OffsetDateTime
+          - reservationDate : LocalDate
+          - startTime : LocalTime
+          + amenityType()
+          + build()
+          + dateCreated()
+          + endTime()
+          + id()
+          + lastUpdated()
+          + reservationDate()
+          + startTime()
+          + toString()
+          + user()
+          ~ ReservationBuilder()
       }
     }
   }
   
 
+  namespace com.reservation_system {
+    namespace model {
+      class com.reservation_system.model.User {
+          - dateCreated : OffsetDateTime
+          - id : Long
+          - lastUpdated : OffsetDateTime
+          - userReservations : Set<Reservation>
+          + User()
+          + User()
+          {static} + builder()
+          + getDateCreated()
+          + getId()
+          + getLastUpdated()
+          + getUserReservations()
+          + prePersist()
+          + preUpdate()
+          + setDateCreated()
+          + setId()
+          + setLastUpdated()
+          + setUserReservations()
+      }
+    }
+  }
+  
+
+  namespace com.reservation_system {
+    namespace model {
+      class com.reservation_system.model.User.UserBuilder {
+          - dateCreated : OffsetDateTime
+          - id : Long
+          - lastUpdated : OffsetDateTime
+          - userReservations : Set<Reservation>
+          + build()
+          + dateCreated()
+          + id()
+          + lastUpdated()
+          + toString()
+          + userReservations()
+          ~ UserBuilder()
+      }
+    }
+  }
+  
+
+  com.reservation_system.model.Reservation o-- com.reservation_system.model.AmenityType : amenityType
+  com.reservation_system.model.Reservation o-- com.reservation_system.model.User : user
+  com.reservation_system.model.Reservation +-down- com.reservation_system.model.Reservation.ReservationBuilder
+  com.reservation_system.model.Reservation.ReservationBuilder o-- com.reservation_system.model.AmenityType : amenityType
+  com.reservation_system.model.Reservation.ReservationBuilder o-- com.reservation_system.model.User : user
+  com.reservation_system.model.User +-down- com.reservation_system.model.User.UserBuilder
 
 
 right footer

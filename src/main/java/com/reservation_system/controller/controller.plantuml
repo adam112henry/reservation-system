@@ -1,11 +1,12 @@
 @startuml
 
-title __RESERVATION_SYSTEM's Class Diagram__\n
+title __CONTROLLER's Class Diagram__\n
 
   namespace com.reservation_system {
-    class com.reservation_system.ReservationSystemApplication {
-        + loadData()
-        {static} + main()
+    namespace controller {
+      class com.reservation_system.controller.HomeController {
+          + index()
+      }
     }
   }
   
