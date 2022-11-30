@@ -80,6 +80,15 @@
             <artifactId>spring-security-crypto</artifactId>
             <version>6.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>3.0.4.RELEASE</version> <!-- keep this version -->
+        </dependency>
     </dependencies>
 
     <build>
