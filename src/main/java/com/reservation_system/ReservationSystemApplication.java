@@ -29,7 +29,8 @@ public class ReservationSystemApplication {
     @Bean
     public CommandLineRunner loadData(UserRepository userRepository, ReservationRepository reservationRepository) {
         return (args) -> {
-            User user = userRepository.save(new User("Adam Henry", "ahenry", bCryptPasswordEncoder().encode("12345")));
+            User user = userRepository.save(new User("Adam Henry", "ahenry", bCryptPasswordEncoder().encode("1234")));
+            User user2 = userRepository.save(new User("John Doe", "jd", bCryptPasswordEncoder().encode("1234")));
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
             LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
