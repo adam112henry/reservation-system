@@ -18,12 +18,23 @@ title __SERVICE's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace service {
+      class com.reservation_system.service.UserDetailsServiceImpl {
+          + UserDetailsServiceImpl()
+          + loadUserByUsername()
+      }
+    }
+  }
+  
+
+  namespace com.reservation_system {
+    namespace service {
       class com.reservation_system.service.UserService {
           + UserService()
           + create()
           + delete()
           + findAll()
           + get()
+          + getUserByUsername()
           + update()
       }
     }
@@ -32,6 +43,8 @@ title __SERVICE's Class Diagram__\n
 
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.ReservationRepository : reservationRepository
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.UserRepository : userRepository
+  com.reservation_system.service.UserDetailsServiceImpl .up.|> org.springframework.security.core.userdetails.UserDetailsService
+  com.reservation_system.service.UserDetailsServiceImpl o-- com.reservation_system.repos.UserRepository : userRepository
   com.reservation_system.service.UserService o-- com.reservation_system.repos.UserRepository : userRepository
 
 

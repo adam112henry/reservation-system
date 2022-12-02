@@ -13,6 +13,7 @@ title __REPOS's Class Diagram__\n
   namespace com.reservation_system {
     namespace repos {
       interface com.reservation_system.repos.UserRepository {
+          {abstract} + findUserByUsername()
       }
     }
   }

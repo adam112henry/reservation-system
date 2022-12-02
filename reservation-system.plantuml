@@ -9,6 +9,14 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
   
 
   namespace com.reservation_system {
+    namespace config {
+      class com.reservation_system.config.WebSecurityConfig {
+      }
+    }
+  }
+  
+
+  namespace com.reservation_system {
     namespace controller {
       class com.reservation_system.controller.HomeController {
       }
@@ -66,16 +74,30 @@ title __RESERVATION-SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
     namespace service {
+      class com.reservation_system.service.UserDetailsServiceImpl {
+      }
+    }
+  }
+  
+
+  namespace com.reservation_system {
+    namespace service {
       class com.reservation_system.service.UserService {
       }
     }
   }
   
 
+  com.reservation_system.config.WebSecurityConfig -up-|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+  com.reservation_system.config.WebSecurityConfig o-- com.reservation_system.service.UserDetailsServiceImpl : userDetailsService
+  com.reservation_system.controller.HomeController o-- com.reservation_system.service.ReservationService : reservationService
+  com.reservation_system.controller.HomeController o-- com.reservation_system.service.UserService : userService
   com.reservation_system.model.Reservation o-- com.reservation_system.model.AmenityType : amenityType
   com.reservation_system.model.Reservation o-- com.reservation_system.model.User : user
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.ReservationRepository : reservationRepository
   com.reservation_system.service.ReservationService o-- com.reservation_system.repos.UserRepository : userRepository
+  com.reservation_system.service.UserDetailsServiceImpl .up.|> org.springframework.security.core.userdetails.UserDetailsService
+  com.reservation_system.service.UserDetailsServiceImpl o-- com.reservation_system.repos.UserRepository : userRepository
   com.reservation_system.service.UserService o-- com.reservation_system.repos.UserRepository : userRepository
 
 

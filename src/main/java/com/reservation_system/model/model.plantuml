@@ -78,22 +78,32 @@ title __MODEL's Class Diagram__\n
     namespace model {
       class com.reservation_system.model.User {
           - dateCreated : OffsetDateTime
+          - fullName : String
           - id : Long
           - lastUpdated : OffsetDateTime
-          - userReservations : Set<Reservation>
+          - passwordHash : String
+          - reservations : Set<Reservation>
+          - username : String
+          + User()
           + User()
           + User()
           {static} + builder()
           + getDateCreated()
+          + getFullName()
           + getId()
           + getLastUpdated()
-          + getUserReservations()
+          + getPasswordHash()
+          + getReservations()
+          + getUsername()
           + prePersist()
           + preUpdate()
           + setDateCreated()
+          + setFullName()
           + setId()
           + setLastUpdated()
-          + setUserReservations()
+          + setPasswordHash()
+          + setReservations()
+          + setUsername()
       }
     }
   }
@@ -103,15 +113,21 @@ title __MODEL's Class Diagram__\n
     namespace model {
       class com.reservation_system.model.User.UserBuilder {
           - dateCreated : OffsetDateTime
+          - fullName : String
           - id : Long
           - lastUpdated : OffsetDateTime
-          - userReservations : Set<Reservation>
+          - passwordHash : String
+          - reservations : Set<Reservation>
+          - username : String
           + build()
           + dateCreated()
+          + fullName()
           + id()
           + lastUpdated()
+          + passwordHash()
+          + reservations()
           + toString()
-          + userReservations()
+          + username()
           ~ UserBuilder()
       }
     }

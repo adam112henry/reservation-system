@@ -5,12 +5,17 @@ title __CONTROLLER's Class Diagram__\n
   namespace com.reservation_system {
     namespace controller {
       class com.reservation_system.controller.HomeController {
+          + HomeController()
           + index()
+          + reservationSubmit()
+          + reservations()
       }
     }
   }
   
 
+  com.reservation_system.controller.HomeController o-- com.reservation_system.service.ReservationService : reservationService
+  com.reservation_system.controller.HomeController o-- com.reservation_system.service.UserService : userService
 
 
 right footer

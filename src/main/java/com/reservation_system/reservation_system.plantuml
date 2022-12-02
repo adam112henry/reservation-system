@@ -4,6 +4,7 @@ title __RESERVATION_SYSTEM's Class Diagram__\n
 
   namespace com.reservation_system {
     class com.reservation_system.ReservationSystemApplication {
+        + bCryptPasswordEncoder()
         + loadData()
         {static} + main()
     }
