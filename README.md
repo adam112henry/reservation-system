@@ -1,20 +1,29 @@
 # ReservationSystem
 
-This app was created with Bootify.io - more documentation [can be found here](https://bootify.io/docs/). Feel free to contact us for further questions.
+A simple Spring Boot app representing an amenity reservation system. The foundation of the app was generated with [Bootify.io](https://bootify.io/docs/), and written while following this [freeCodeCamp tutorial](https://www.freecodecamp.org/news/spring-boot-tutorial-build-fast-modern-java-app/).
 
-## Adam's notes
 
-- here is the link to the [code camp project](https://www.freecodecamp.org/news/spring-boot-tutorial-build-fast-modern-java-app/)
-- here is the link to the guy's [git repo](https://github.com/yigiterinc/amenity-reservation-system)
-- I had to add the 'h2' section in the application.yml file in order to run the h2 console
-- double-click the Maven run configuration in the Maven window that I created
-- Run (or debug) the 'run jar' configuration that I created
-- go to Swagger here - http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
-- POST some users
-- POST some reservations but need to specify the user parameter
-- Open the h2 console - http://localhost:8080/h2-console
-- Change the JDBC URL to jdbc:h2:mem:reservation-system
-- Connect and you're good to go!
+## Technologies Used
+- Spring Boot
+- Thymeleaf
+- Hibernate
+- Swagger
+- Spring Security
+- Bootify
+- Maven
+- JPA
+- H2 In-Memory Database
+- Bootstrap
+
+## Notes
+
+- The tutorial is a bit out of date so it was useful to reference the tutorial's [git repo](https://github.com/yigiterinc/amenity-reservation-system)
+- My IntelliJ run configurations were added to this repo
+- After starting the application it is accessible at http://localhost:8080
+- The Swagger link is here: http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
+- The h2 console is here: http://localhost:8080/h2-console
+- The JDBC URL should be: jdbc:h2:mem:reservation-system
+- For login purposes, 2 default users are created within the [main application class](https://github.com/adam112henry/reservation-system/blob/main/src/main/java/com/reservation_system/ReservationSystemApplication.java)
 
 ## Development
 
@@ -23,8 +32,6 @@ During development it is recommended to use the profile `local`. In IntelliJ, `-
 Update your local database connection in `application.yml` or create your own `application-local.yml` file to override settings for development.
 
 Lombok must be supported by your IDE. For this, in IntelliJ install the Lombok plugin and enable annotation processing - [learn more](https://bootify.io/intellij/spring-boot-with-lombok.html).
-
-After starting the application it is accessible under `localhost:8080`.
 
 ## Build
 
