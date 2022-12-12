@@ -47,6 +47,18 @@ The application can then be started with the following command - here with the p
 java -Dspring.profiles.active=production -jar ./target/reservation-system-0.0.1-SNAPSHOT.jar
 ```
 
+## Docker
+
+```shell
+# build the container
+$ docker build -t reservation_system:latest .
+# create and run the container - i.e. first time
+$ docker run --name reservation_system -d -p 8200:8080 reservation_system:latest
+# -OR- start the existing container
+$ docker start reservation_system
+# mapped to http://localhost:8200
+```
+
 ## Further readings
 
 * [Maven docs](https://maven.apache.org/guides/index.html)  
