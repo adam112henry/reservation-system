@@ -50,12 +50,14 @@ java -Dspring.profiles.active=production -jar ./target/reservation-system-0.0.1-
 ## Docker
 
 ```shell
+# prune all of docker
+$ docker system prune -a --volumes
 # build the container
-$ docker build -t reservation_system:latest .
+$ docker build -t reservation-system:latest .
 # create and run the container - i.e. first time
-$ docker run --name reservation_system -d -p 8200:8080 reservation_system:latest
+$ docker run --platform linux/amd64 --name reservation-system -d -p 8200:8080 reservation-system:latest
 # -OR- start the existing container
-$ docker start reservation_system
+$ docker start reservation-system
 # mapped to http://localhost:8200
 ```
 

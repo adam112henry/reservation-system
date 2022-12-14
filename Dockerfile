@@ -1,4 +1,4 @@
-FROM amazoncorretto:17.0.5-alpine3.16
+FROM --platform=linux/amd64 amazoncorretto:17.0.5-alpine3.16
 
 # /Users/adam/Library/Java/JavaVirtualMachines/corretto-17.0.5/Contents/Home/bin/java
     # -Dspring.profiles.active=local
