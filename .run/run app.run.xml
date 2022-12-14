@@ -2,6 +2,7 @@
   <configuration default="false" name="run app" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.reservation_system.ReservationSystemApplication" />
     <module name="reservation-system" />
+    <option name="PROGRAM_PARAMETERS" value="-Dspring.profiles.active=local" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
